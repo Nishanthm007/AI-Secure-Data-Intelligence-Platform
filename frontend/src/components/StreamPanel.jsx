@@ -1,8 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
 import RiskBadge from './RiskBadge'
 import styles from './StreamPanel.module.css'
+import { WS_ANALYZE } from '../services/api'
 
-const WS_URL = `ws://localhost:8000/api/v1/ws/analyze`
+const WS_URL = WS_ANALYZE
 
 const RISK_ORDER = ['critical', 'high', 'medium', 'low']
 const TYPE_ICONS = {
