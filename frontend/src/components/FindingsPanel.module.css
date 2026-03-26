@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.empty span {
+  font-size: 36px;
+}
+
+.group {}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.count {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.findings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.finding {
+  border-radius: 8px;
+  padding: 12px 14px;
+  border-left: 3px solid transparent;
+  background: var(--bg-tertiary);
+}
+
+.critical { border-left-color: var(--risk-critical); }
+.high { border-left-color: var(--risk-high); }
+.medium { border-left-color: var(--risk-medium); }
+.low { border-left-color: var(--risk-low); }
+
+.findingHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+.type {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.line {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.value {
+  display: block;
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+  color: var(--accent-orange);
+  background: var(--bg-card);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+.context {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: monospace;
+  word-break: break-all;
+}
