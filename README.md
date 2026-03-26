@@ -1,6 +1,6 @@
 # AI Secure Data Intelligence Platform
 
-> **Hackathon 2026** — AI Gateway · Scanner · Log Analyzer · Risk Engine
+>  AI Gateway · Scanner · Log Analyzer · Risk Engine
 
 A full-stack security intelligence platform that ingests multi-source data (text, files, SQL, chat, logs), detects sensitive information and security risks, scores risk with a configurable engine, and generates AI-powered insights.
 
