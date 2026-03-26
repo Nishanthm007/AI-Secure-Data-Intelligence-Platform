@@ -1,0 +1,109 @@
+.viewer {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 12.5px;
+}
+
+.header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.lineCount {
+  background: var(--bg-tertiary);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.body {
+  display: flex;
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--bg-primary);
+}
+
+.lineNumbers {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 8px 0;
+  user-select: none;
+  flex-shrink: 0;
+  min-width: 48px;
+  text-align: right;
+}
+
+.lineNum {
+  padding: 1px 10px;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.code {
+  flex: 1;
+  padding: 8px 0;
+  overflow-x: auto;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  padding: 1px 12px;
+  line-height: 1.7;
+  white-space: pre;
+  position: relative;
+  transition: background 0.1s;
+}
+
+.line:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lineText {
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.lineCritical {
+  background: rgba(248, 81, 73, 0.1);
+}
+.lineCritical .lineText { color: #ffa198; }
+
+.lineHigh {
+  background: rgba(240, 136, 62, 0.08);
+}
+.lineHigh .lineText { color: #ffc680; }
+
+.lineMedium {
+  background: rgba(210, 153, 34, 0.07);
+}
+.lineMedium .lineText { color: #e3b341; }
+
+.lineLow {
+  background: rgba(63, 185, 80, 0.05);
+}
+.lineLow .lineText { color: #7ee787; }
+
+.riskBadge {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 8px;
+  letter-spacing: 0.5px;
+}
+
+.badgeCritical { background: rgba(248, 81, 73, 0.25); color: var(--risk-critical); }
+.badgeHigh { background: rgba(240, 136, 62, 0.25); color: var(--risk-high); }
+.badgeMedium { background: rgba(210, 153, 34, 0.25); color: var(--risk-medium); }
+.badgeLow { background: rgba(63, 185, 80, 0.2); color: var(--risk-low); }
