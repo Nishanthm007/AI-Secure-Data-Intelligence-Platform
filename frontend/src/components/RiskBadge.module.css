@@ -1,0 +1,34 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.lg {
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.low {
+  color: var(--risk-low);
+  background: rgba(63, 185, 80, 0.12);
+}
+.medium {
+  color: var(--risk-medium);
+  background: rgba(210, 153, 34, 0.12);
+}
+.high {
+  color: var(--risk-high);
+  background: rgba(240, 136, 62, 0.12);
+}
+.critical {
+  color: var(--risk-critical);
+  background: rgba(248, 81, 73, 0.12);
+}

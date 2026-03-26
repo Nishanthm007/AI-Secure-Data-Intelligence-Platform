@@ -1,0 +1,102 @@
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--bg-tertiary);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone:hover {
+  border-color: var(--accent-blue);
+  background: rgba(88, 166, 255, 0.04);
+}
+
+.dragging {
+  border-color: var(--accent-blue);
+  background: rgba(88, 166, 255, 0.08);
+  transform: scale(1.01);
+}
+
+.hasFile {
+  border-style: solid;
+  border-color: var(--accent-green);
+  cursor: default;
+}
+
+.hidden {
+  display: none;
+}
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.uploadIcon {
+  font-size: 36px;
+}
+
+.promptMain {
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.promptSub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.fileIcon {
+  font-size: 32px;
+}
+
+.fileName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.fileSize {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.clearBtn {
+  margin-left: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.clearBtn:hover {
+  background: var(--risk-critical);
+  color: white;
+  border-color: var(--risk-critical);
+}
