@@ -1,0 +1,23 @@
+2026-03-10 10:00:00 INFO  Application starting up in DEBUG mode
+2026-03-10 10:00:01 DEBUG Config loaded: db_host=prod-db.internal, db_port=5432
+2026-03-10 10:00:02 INFO  Server listening on 0.0.0.0:8080
+2026-03-10 10:00:05 INFO  User login attempt email=admin@company.com password=admin123
+2026-03-10 10:00:05 INFO  User authenticated: admin@company.com from IP 203.0.113.42
+2026-03-10 10:00:06 DEBUG api_key=sk-prod-xyz789abc123 loaded for service integration
+2026-03-10 10:00:07 INFO  Payment processed for card 4532-1234-5678-9010
+2026-03-10 10:00:10 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:11 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:12 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:13 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:14 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:15 ERROR Authentication failed for user john.doe@example.com from 203.0.113.42
+2026-03-10 10:00:16 WARN  Rate limit approaching for IP 203.0.113.42
+2026-03-10 10:00:20 INFO  DB connection: postgresql://dbuser:S3cr3tP@ssw0rd@prod-db.internal:5432/appdb
+2026-03-10 10:00:21 INFO  Token refreshed: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+2026-03-10 10:00:22 DEBUG AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+2026-03-10 10:00:23 ERROR NullPointerException at UserService.java:142
+2026-03-10 10:00:23 ERROR   at com.example.UserService.getUser(UserService.java:142)
+2026-03-10 10:00:23 ERROR   at com.example.AuthController.login(AuthController.java:89)
+2026-03-10 10:00:25 INFO  SSN logged for audit: 123-45-6789
+2026-03-10 10:00:30 DEBUG secret=my-super-secret-client-key-do-not-share
+2026-03-10 10:00:35 INFO  Request from 203.0.113.42 completed in 245ms
