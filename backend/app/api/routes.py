@@ -151,4 +151,4 @@ async def correlate(request: CorrelateRequest, _: None = Depends(analyze_limit))
 
 @router.get("/health")
 async def health():
-    return {"status": "ok", "ai_enabled": bool(settings.openai_api_key)}
+    return {"status": "ok", "ai_enabled": bool(settings.gemini_api_key or settings.groq_api_key)}

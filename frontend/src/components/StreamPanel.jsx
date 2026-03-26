@@ -2,7 +2,8 @@ import { useState, useRef, useCallback } from 'react'
 import RiskBadge from './RiskBadge'
 import styles from './StreamPanel.module.css'
 
-const WS_URL = `ws://localhost:8000/api/v1/ws/analyze`
+const _apiBase = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const WS_URL = `${_apiBase.replace(/^http/, 'ws')}/api/v1/ws/analyze`
 
 const RISK_ORDER = ['critical', 'high', 'medium', 'low']
 const TYPE_ICONS = {

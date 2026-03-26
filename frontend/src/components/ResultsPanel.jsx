@@ -4,6 +4,7 @@ import FindingsPanel from './FindingsPanel'
 import InsightsPanel from './InsightsPanel'
 import LogViewer from './LogViewer'
 import styles from './ResultsPanel.module.css'
+import { downloadReportPDF } from '../utils/pdfReport'
 
 const RISK_COLORS = {
   low: '#3fb950',
@@ -66,6 +67,15 @@ export default function ResultsPanel({ result }) {
             <span>0</span><span>LOW</span><span>MED</span><span>HIGH</span><span>CRIT</span>
           </div>
         </div>
+
+        {/* Download PDF button */}
+        <button
+          className={styles.downloadBtn}
+          onClick={() => downloadReportPDF(result)}
+          title="Download analysis report as PDF"
+        >
+          ⬇ Download PDF
+        </button>
       </div>
 
       {/* Tabs */}
