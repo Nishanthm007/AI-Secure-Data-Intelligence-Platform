@@ -79,6 +79,18 @@ def generate_rule_based_insights(findings: List[Finding]) -> List[str]:
         insights.append(f"Scanned {total} finding(s) — no critical security issues detected. Continue monitoring for anomalies.")
 
     return insights[:8]
+    """Generate contextual, actionable security insights from findings."""
+    finding_types = {f.type for f in findings}
+    insights = []
+
+    for ftype, risk, message in _INSIGHT_RULES:
+        if ftype in finding_types:
+            insights.append(message)
+
+    if not insights:
+        insights.append("No significant security issues detected. Continue monitoring for anomalies.")
+
+    return insights[:8]  # cap at 8 insights
 
 
 async def generate_ai_insights(
@@ -176,3 +188,54 @@ async def generate_ai_insights(
     # ── 3. Rule-based fallback ─────────────────────────────────────────────────
     return generate_rule_based_insights(findings)
 
+    Attempt OpenAI-powered insights; fall back to rule-based if unavailable.
+    """
+    from ..core.config import settings
+
+    if not settings.openai_api_key or settings.ai_provider == "none":
+        return generate_rule_based_insights(findings)
+
+    try:
+        from openai import AsyncOpenAI
+        import json
+
+        client = AsyncOpenAI(api_key=settings.openai_api_key)
+
+        findings_text = "\n".join(
+            f"- [{f.risk.upper()}] {f.type}"
+            + (f" at line {f.line}" if f.line else "")
+            + (f": {f.context[:80]}" if f.context else "")
+            for f in findings[:30]
+        )
+
+        stats_text = ""
+        if stats:
+            stats_text = f"\nLog stats: {stats.get('total_lines', 0)} lines, {stats.get('failed_logins', 0)} failed logins, {stats.get('error_count', 0)} errors."
+
+        prompt = (
+            f"You are a senior security analyst. Analyze these findings from a '{content_type}' input "
+            f"and provide 4-6 specific, actionable security insights.{stats_text}\n\n"
+            f"Findings:\n{findings_text}\n\n"
+            f"Return a JSON object with key 'insights' containing an array of insight strings. "
+            f"Each insight must be specific (mention the finding type), actionable, and under 150 characters. "
+            f"Do NOT be generic. Focus on the actual risks present."
+        )
+
+        response = await client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            response_format={"type": "json_object"},
+            max_tokens=600,
+            temperature=0.3,
+        )
+
+        raw = response.choices[0].message.content
+        data = json.loads(raw)
+        insights = data.get("insights", [])
+        if isinstance(insights, list) and insights:
+            return insights[:8]
+
+        return generate_rule_based_insights(findings)
+
+    except Exception:
+        return generate_rule_based_insights(findings)
