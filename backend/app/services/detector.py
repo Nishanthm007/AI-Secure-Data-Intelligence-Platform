@@ -9,7 +9,7 @@ _PATTERNS: List[Tuple] = [
     (
         "password",
         re.compile(
-            r"(?i)(?:password|passwd|pwd|pass)\s*[=:\"'\s]+\s*(\S{3,})",
+            r"(?i)(?:password|passwd|pwd|pass(?:phrase)?)\s*(?:is|was|are|=|:|\")\s*[=:\"'\s]*(\S{3,})",
             re.IGNORECASE,
         ),
         RiskLevel.critical,
@@ -18,7 +18,7 @@ _PATTERNS: List[Tuple] = [
     (
         "api_key",
         re.compile(
-            r"(?i)(?:api[_\-]?key|apikey|api[_\-]?token)\s*[=:\"'\s]+\s*([\w\-\.]{8,})",
+            r"(?i)(?:api[_\-]?key|apikey|api[_\-]?token)\s*(?:is|was|=|:|\"|\s)\s*[=:\"'\s]*([\w\-\.]{8,})",
             re.IGNORECASE,
         ),
         RiskLevel.high,
@@ -27,7 +27,7 @@ _PATTERNS: List[Tuple] = [
     (
         "secret",
         re.compile(
-            r"(?i)(?:secret|client[_\-]?secret|app[_\-]?secret)\s*[=:\"'\s]+\s*([\w\-\.]{8,})",
+            r"(?i)(?:secret|client[_\-]?secret|app[_\-]?secret)\s*(?:is|was|=|:|\"|\s)\s*[=:\"'\s]*([\w\-\.]{8,})",
             re.IGNORECASE,
         ),
         RiskLevel.critical,
@@ -36,7 +36,7 @@ _PATTERNS: List[Tuple] = [
     (
         "token",
         re.compile(
-            r"(?i)(?:(?:auth|access|refresh|bearer)[_\-]?token|token)\s*[=:\"'\s]+\s*([\w\-\.]{8,})",
+            r"(?i)(?:(?:auth|access|refresh|bearer)[_\-]?token|token)\s*(?:is|was|=|:|\"|\s)\s*[=:\"'\s]*([\w\-\.]{8,})",
             re.IGNORECASE,
         ),
         RiskLevel.high,
